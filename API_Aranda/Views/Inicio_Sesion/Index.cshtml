@@ -1,0 +1,48 @@
+﻿
+@model API_Aranda.Models.Variables
+@{
+    ViewBag.Title = "Inicio_Sesion";
+
+}
+<div class="jumbotron">
+    <h1>Inicio de la Sesión</h1>
+    <h2>Permite iniciar la sesion</h2>
+    <p>Al presionar el boton se iniciara la sesion </p>
+    <p>
+
+
+    </p>
+</div>
+<div>
+    <p>Se puede inicar la sesion </p>
+</div>
+@using (Html.BeginForm("Create", "Inicio_Sesion", FormMethod.Post))
+{
+    <div class="row">
+        <div class="form-group">
+            <div>@Html.LabelFor(x => x.username)</div>
+            <div>@Html.TextBoxFor(x => x.username)</div>
+            <div>@Html.LabelFor(x => x.password)</div>
+            <div>@Html.TextBoxFor(x => x.password)</div>
+            <div>@Html.LabelFor(x => x.consoleid)</div>
+            <div>@Html.TextBoxFor(x => x.consoleid)</div>
+            <div>@Html.LabelFor(x => x.serverId)</div>
+            <div>@Html.TextBoxFor(x => x.serverId)</div>
+
+
+
+        </div>
+        <div class="form-group">
+            <input type="submit" typeof="Modificar Cliente" />
+
+        </div>
+    </div>
+    
+    <div class="alert-info">
+        @ViewBag.Message
+
+    </div>
+
+}
+
+
