@@ -21,13 +21,13 @@
     <div class="row">
         <div class="form-group">
             <div>@Html.LabelFor(x => x.username)</div>
-            <div>@Html.TextBoxFor(x => x.username)</div>
+            <div>@Html.TextBoxFor(x => x.username, new { @Value = "esalazar" }) </div>
             <div>@Html.LabelFor(x => x.password)</div>
-            <div>@Html.TextBoxFor(x => x.password)</div>
-            <div>@Html.LabelFor(x => x.consoleid)</div>
-            <div>@Html.TextBoxFor(x => x.consoleid)</div>
-            <div>@Html.LabelFor(x => x.serverId)</div>
-            <div>@Html.TextBoxFor(x => x.serverId)</div>
+            <div>@Html.TextBoxFor(x => x.password, new { @Value = "Aranda123", type="password"} )</div>
+            
+            <div>@Html.TextBoxFor(x => x.consoleid, new { @Value = 1, type = "hidden" })</div>
+            
+            <div>@Html.TextBoxFor(x => x.serverId, new { @Value = 0, type = "hidden" })</div>
 
 
 

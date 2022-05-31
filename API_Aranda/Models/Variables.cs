@@ -9,8 +9,8 @@ namespace API_Aranda.Models
     {
         public string username { get; set; }
         public string password { get; set; }
-        public string consoleid { get; set; }
-        public string serverId { get; set; }
+        public int consoleid { get; set; }
+        public int serverId { get; set; }
 
     }
 }
