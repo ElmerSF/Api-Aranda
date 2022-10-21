@@ -20,8 +20,7 @@ namespace API_Aranda.Models
             {
                                 
                 JavaScriptSerializer js = new JavaScriptSerializer();
-
-                //serializamos el objeto
+               
                 string json = JsonConvert.SerializeObject(datos_sesion);
 
 
@@ -31,30 +30,32 @@ namespace API_Aranda.Models
                
                request.Method = method;
                request.ContentType = "application/json;charset=utf-8'";
-                //request.ContentLength = json.Length;
+               // request.ContentLength = json.Length;
                 using (var streamWriter = new StreamWriter(request.GetRequestStream())) 
-
-              
-
-
                 {
-                    streamWriter.Write(json);
-                    //string json2 = streamReader.ReadToEnd().Trim();
-                    streamWriter.Flush();
+                     streamWriter.Write(json);
+                     streamWriter.Flush();
                      streamWriter.Close();
                 }
-                //var httpResponse= (HttpWebResponse)request.GetResponse();
-                
                 var httpResponse = (HttpWebResponse)request.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    resultado = streamReader.ReadToEnd().Trim();
+                }
+
+                //var httpResponse= (HttpWebResponse)request.GetResponse();
+
+                //var httpResponse = (HttpWebResponse)request.GetResponse();
               
 
-                HttpCookie cookie = new HttpCookie("valor", Convert.ToString(httpResponse.Cookies));
+                //HttpCookie cookie = new HttpCookie("valor", Convert.ToString(httpResponse.Cookies));
 
-                var streamReader = new StreamReader(httpResponse.GetResponseStream());
+               // var streamReader = new StreamReader(httpResponse.GetResponseStream());
                 // using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                {
-                       resultado = streamReader.ReadToEnd().Trim();
-                }
+                //{
+                  //     resultado = streamReader.ReadToEnd().Trim();
+                //}
+
 
             }
             catch (Exception e)
@@ -63,6 +64,7 @@ namespace API_Aranda.Models
                 resultado = e.Message;
 
             }
+
 
             return resultado;
         }

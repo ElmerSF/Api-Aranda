@@ -32,11 +32,14 @@ namespace API_Aranda.Controllers
         {
             try
             {
+                //instanciamos los dos modelos para tener acceso local
                 Conexion_Api coman = new Conexion_Api();
                 Variables variables = new Variables();
 
                 //parametro de la API que vamos a utilizar del proyecto Webservices
-                string direccion = "http://preventacr.arandasoft.com/ASDKAPI/userRest.svc/login";
+               // string direccion = "http://preventacr.arandasoft.com/ASDKAPI/userRest.svc/login";
+                string direccion = "http://preventacr.arandasoft.com/ASDKAPI//api/v8.6/user/login";
+            
                 string mensaje;
                 //le mandamos el paquete a serializar
                 
